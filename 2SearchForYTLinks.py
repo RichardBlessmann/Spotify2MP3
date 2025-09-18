@@ -11,7 +11,12 @@ folder_path = filedialog.askdirectory(
     title="Wähle den Ordner mit deinen Playlist-CSV-Dateien"
 )
 
-if folder_path:
+# Ordnerauswahl-Dialog öffnen
+folder_output_path = filedialog.askdirectory(
+    title="Wähle den Ordner, in den die neuen CSV Dateien gespeichert werden sollen"
+)
+
+if folder_path and folder_output_path:
     # Alle CSV-Dateien im Ordner durchgehen
     for file_name in os.listdir(folder_path):
         if file_name.endswith(".csv"):
@@ -46,7 +51,8 @@ if folder_path:
                 df_reduced["YouTube Link"] = youtube_links
 
                 # Neue CSV speichern
-                output_path = file_path.replace(".csv", "_with_youtube.csv")
+                output_file = file_name.replace(".csv", "_with_youtube.csv")
+                output_path = os.path.join(folder_output_path, output_file)
                 df_reduced.to_csv(output_path, index=False)
 
                 print(f"Gespeichert unter: {output_path}")

@@ -11,11 +11,15 @@ folder_path = filedialog.askdirectory(
     title="Wähle den Ordner mit deinen CSV-Dateien"
 )
 
-if folder_path:
+folder_output_path = filedialog.askdirectory(
+    title="Wähle den Ordner, in den die bearbeiteten CSV-Dateien gespeichert werden sollen!"
+)
+
+if folder_path and folder_output_path:
     # Optionen für MP3-Download
     ydl_opts = {
         "format": "bestaudio/best",
-        "outtmpl": "%(title)s.%(ext)s",   # Dateiname = Videotitel
+        "outtmpl": f"{folder_output_path}/%(title)s.%(ext)s",
         "postprocessors": [{
             "key": "FFmpegExtractAudio",
             "preferredcodec": "mp3",
