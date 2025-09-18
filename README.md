@@ -15,9 +15,9 @@ To do the first step and get all your spotify Playlists we can use an external t
 Keep in mind that the following scripts will work on ALL the Playlists in the folder.
 
 ### Step 2: CSV Files into a understandable format.
-Actually it's not that important to do this step. I just added it beacause i think the data Exportify gives you is overflowing and not that clear to comprehend. So i jst reduced the CSV File into 3 different Categories per Song. `Song Title`, `Interpret` and `Album Title`.
+Actually it's not that important to do this step. I just added it beacause i think the data Exportify gives you is overflowing and not that clear to comprehend. So i just reduced the CSV File into 3 different Categories per Song. `Song Title`, `Interpret` and `Album Title`.
 
-To do that you can run the first script provided in the repo. To be able to execute the repo you need several libraries installed. If you are using [PyCharm](https://www.jetbrains.com/pycharm/download/?section=windows) as IDE these can be installed in the IDE after executing the script. If not you need to manually install the needed packages using:
+To do that you can run the first script provided in the repo `1ReorganizeCSVFiles`. To be able to execute the repo you need several libraries installed. If you are using [PyCharm](https://www.jetbrains.com/pycharm/download/?section=windows) as IDE these can be installed in the IDE after executing the script. If not you need to manually install the needed packages using:
 ```
 py -m pip install pandas
 py -m pip install youtube-search-python
@@ -30,7 +30,7 @@ The script will make seperate Files which you then can put into a different fold
 
 ### Step 3: Add the coresponding Youtube link
 
-To execute the `second script` you need to have first the following packages installed. 
+To execute the `2SearchForYTLinks` you need to have first the following packages installed. 
 `py -m pip install youtube-search-python`
 If you use the VM of PyCharm you can find the package in the bottom left of your IDE in the Package Manager Tab.
 
@@ -38,6 +38,7 @@ This will automatically search for the most likely youtube video, that fits your
 
 ### Step 4: Download the MP3 Files
 
-To execute this file you will need the following package installed:
+To execute this file `3csvfile2mp3` you will need the following package installed:
 `py -m pip install yt-dlp`
+
 This will download all songs. Try letting it run overnight if you have long Playlists ;)
