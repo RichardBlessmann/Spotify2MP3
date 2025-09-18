@@ -8,11 +8,11 @@ Tk().withdraw()
 
 # Ordnerauswahl-Dialog öffnen
 folder_path = filedialog.askdirectory(
-    title="Wähle den Ordner mit deinen CSV-Dateien"
+    title="Wähle den Ordner mit deinen CSV-Dateien mit yt link"
 )
 
 folder_output_path = filedialog.askdirectory(
-    title="Wähle den Ordner, in den die bearbeiteten CSV-Dateien gespeichert werden sollen!"
+    title="Wähle den Ordner, in den die bearbeiteten mp3-Dateien gespeichert werden sollen!"
 )
 
 if folder_path and folder_output_path:
