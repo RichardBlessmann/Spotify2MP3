@@ -1,3 +1,5 @@
+import sys
+
 import pandas as pd
 import yt_dlp
 import os
@@ -14,11 +16,20 @@ folder_path = filedialog.askdirectory(
 folder_output_path = filedialog.askdirectory(
     title="Wähle den Ordner, in den die bearbeiteten mp3-Dateien gespeichert werden sollen!"
 )
+if getattr(sys, 'frozen', False):
+    # Running from PyInstaller bundle
+    base_path = sys._MEIPASS
+else:
+    # Running from source
+    base_path = os.path.dirname(__file__)
+
+ffmpeg_path = os.path.join(base_path, "ffmpeg-2025-09-18-git-c373636f55-essentials_build/ffmpeg-2025-09-18-git-c373636f55-essentials_build/bin")
 
 if folder_path and folder_output_path:
     # Optionen für MP3-Download
     ydl_opts = {
         "format": "bestaudio/best",
+        "ffmpeg_location": ffmpeg_path,
         "outtmpl": f"{folder_output_path}/%(title)s.%(ext)s",
         "postprocessors": [{
             "key": "FFmpegExtractAudio",
