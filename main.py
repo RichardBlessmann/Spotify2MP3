@@ -12,13 +12,11 @@ def run_script(script_name):
         sys.exit(result.returncode)
 
 def main():
-    print("▶ Running Step 1: Reorganize CSV files...")
-    run_script("1ReorganizeCSVFiles.py")
-    print("▶ Running Step 2: Search for YouTube links...")
+    print("▶ Running Step 1 & 2: Reduce CSV File & Search for YouTube links...")
     run_script("2SearchForYTLinks.py")
     print("▶ Running Step 3: Download MP3 files...")
     run_script("3csvfile2mp3.py")
-    print("\n✅ Alle Schritte erfolgreich abgeschlossen!")
+    print("\nAlle Schritte erfolgreich abgeschlossen!")
 
 if __name__ == "__main__":
     main()
