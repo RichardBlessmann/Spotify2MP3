@@ -10,10 +10,10 @@ def main():
 
     # Ordnerauswahl-Dialog öffnen
     folder_path = filedialog.askdirectory(
-        title="Wähle den Ordner mit deinen Playlist-CSV-Dateien"
+        title="Choose the folder with the csv files"
     )
     folder_output_path = filedialog.askdirectory(
-        title="Wähle den Ordner, in den die bearbeiteten CSV-Dateien gespeichert werden sollen!"
+        title="Choose the folder where the new csv files are supposed to be saved with youtube links!\n Preferrably not in the same folder as the origin folder"
     )
 
     if folder_path and folder_output_path:
@@ -22,7 +22,7 @@ def main():
             if file_name.endswith(".csv"):
                 file_path = os.path.join(folder_path, file_name)
 
-                print(f"\nVerarbeite Datei: {file_name}")
+                print(f"\nWorking on: {file_name}")
 
                 # CSV laden
                 df = pd.read_csv(file_path)
@@ -57,11 +57,11 @@ def main():
                     output_path = os.path.join(folder_output_path, output_file)
                     df_reduced.to_csv(output_path, index=False)
 
-                    print(f"Gespeichert unter: {output_path}\n")
+                    print(f"Saved in: {output_path}\n")
                 else:
-                    print(f"Datei {file_name} hat nicht die erwarteten Spalten.\n")
+                    print(f"File {file_name} doesn't have the expected column.\n")
     else:
-        print("Kein Ordner ausgewählt.")
+        print("No folder chosen.")
 
 
 if __name__ == "__main__":
@@ -70,4 +70,4 @@ if __name__ == "__main__":
     except Exception as e:
         import traceback
         traceback.print_exc()
-        input("Ein Fehler ist aufgetreten. Drücke Enter zum Beenden.")
+        input("An Error occured. Press Enter to finish.")
