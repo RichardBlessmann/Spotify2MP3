@@ -31,15 +31,10 @@ def main:
     )
     if folder_path and folder_output_path:
         # Optionen für MP3-Download
-        ydl_opts = {
+       ydl_opts = {
             "format": "bestaudio/best",
             "ffmpeg_location": ffmpeg_path,
             "outtmpl": f"{folder_output_path}/%(title)s.%(ext)s",
-            "postprocessors": [{
-                "key": "FFmpegExtractAudio",
-                "preferredcodec": "mp3",
-                "preferredquality": "192",
-            }],
             "quiet": False,
         }
         if cookie_file_path:
